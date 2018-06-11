@@ -60,7 +60,7 @@ var films = [
   { name: "titanic", rating: 2 }
 ];
 
-// num stans for the question number (starting at zero)
+// num stands for the question number (starting at zero)
 function computeResponse(input) {
   var response = "";
   try {
@@ -97,9 +97,15 @@ function compare(arr, array, string) {
   return item;
 }
 // Step thought the questions and display the chatbox responses.
+
+var inputBox = document.querySelector("#answer");
+var output = document.querySelector("#result");
+var waitTimeInMilliseconds = 1000;
+var num = 0;
+
 function showResponse() {
   var input = inputBox.value;
-  if (inputBox.value !== "") {
+  if (input !== "") {
     let response = "";
     if (num === 0) {
       response = `Hello ${input}!`;
@@ -142,13 +148,8 @@ function showResponse() {
 }
 
 // Time to wait before showing the next question, in milliseconds
-var waitTimeInMilliseconds = 1000;
 // var waitTimeInMilliseconds = 0;
 var totalQuestions = questions.length - 1;
-var num = 0;
-
-var inputBox = document.querySelector("#answer");
-var output = document.querySelector("#result");
 
 // Displays the first question.
 output.innerHTML = questions[num];
@@ -172,12 +173,12 @@ function timeInSeconds(milliseconds) {
   return milliseconds / 1000;
 }
 
-function speak(string) {
+function speak(response) {
   var utterance = new SpeechSynthesisUtterance();
   utterance.voice = speechSynthesis.getVoices().filter(function(voice) {
-    return voice.name == "Google UK English Male";
+    return voice.name == "Google UK English Female";
   })[0];
-  utterance.text = string;
+  utterance.text = response;
   utterance.lang = "en-US";
   utterance.volume = 1; //0-1 interval
   utterance.rate = 1;

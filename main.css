@@ -8,6 +8,10 @@
   src: url("./assets/fonts/TW-Averta-Regular.ttf");
 }
 
+.red {
+ color:red;
+}
+
 html,
 body {
   background: #ffffff;
